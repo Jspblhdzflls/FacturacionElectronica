@@ -1,0 +1,4 @@
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\bin\Release\Conexion.dll
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\bin\Release\Conexion.pdb
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\obj\Release\Conexion.dll
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\obj\Release\Conexion.pdb

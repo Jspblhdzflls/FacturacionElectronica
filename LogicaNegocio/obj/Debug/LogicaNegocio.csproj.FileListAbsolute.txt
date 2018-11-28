@@ -1,0 +1,7 @@
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\LogicaNegocio\bin\Debug\Conexion.dll
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\LogicaNegocio\bin\Debug\Conexion.pdb
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\LogicaNegocio\obj\Debug\LogicaNegocio.pdb

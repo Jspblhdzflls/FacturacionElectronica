@@ -1,0 +1,5 @@
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\bin\Debug\Conexion.dll
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\bin\Debug\Conexion.pdb
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\obj\Debug\Conexion.csprojResolveAssemblyReference.cache
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\obj\Debug\Conexion.dll
+D:\Datos\Documents\DCTECNO\FacturacionElectronica\Conexion\obj\Debug\Conexion.pdb
