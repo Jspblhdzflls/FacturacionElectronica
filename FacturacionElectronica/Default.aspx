@@ -15,6 +15,8 @@
 
         <a href="Paginas/Mantenimientos/MantenimientoReceptor.aspx">Mantenimiento Receptor</a>
         <br />
+        <a href="Paginas/Mantenimientos/MantenimientoProductos.aspx">Mantenimiento Productos</a>
+        <br />
 
     </div>
 

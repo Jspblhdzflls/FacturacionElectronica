@@ -57,7 +57,7 @@
                         <li><a href="Paginas/CrearFactura.aspx">Crear Factura</a> </li>
                         <li><a href="Paginas/Mantenimientos/MantenimientoEmisor.aspx">Emisores</a></li>
                         <li><a href="Paginas/Mantenimientos/MantenimientoReceptor.aspx">Receptor</a></li>
-
+                        <li><a href="Paginas/Mantenimientos/MantenimientoProductos.aspx">Mantenimiento Productos</a></li>
 
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

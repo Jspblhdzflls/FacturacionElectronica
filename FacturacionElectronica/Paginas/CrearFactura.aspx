@@ -10,6 +10,26 @@
         </div>
         <div class="panel-body">
 
+            <div class="form-group col-md-4">
+
+                <asp:Label ID="Label5" runat="server" Text="Seleccione Emisor " CssClass="label"></asp:Label>
+                <asp:DropDownList ID="ddlEmisor" CssClass="form-control" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlEmisor_SelectedIndexChanged" AutoPostBack="true">
+                    <asp:ListItem Value="0">Seleccione Emisor</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="panel panel-default" style="margin-top: 40px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Emisor
+            </h3>
+        </div>
+        <div class="panel-body">
+
+
 
             <div class="form-group col-md-4">
                 <asp:Label ID="lblCodigoEmisor" runat="server" Text="Codigo Emisor" CssClass="label"></asp:Label>
@@ -271,7 +291,7 @@
         </div>
     </div>
 
-     <asp:Button ID="btnGuardar" CssClass="btn btn-primary btn-bloque" runat="server" Text="Guardar Factura" OnClick="btnGuardar_Click" />
+    <asp:Button ID="btnGuardar" CssClass="btn btn-primary btn-bloque" runat="server" Text="Guardar Factura" OnClick="btnGuardar_Click" />
 
 
 

@@ -132,6 +132,17 @@ namespace LogicaNegocio
             return objConexion.consultarInformacionSQL(miComando); ;
         }
 
+        public DataTable ConsultaEstadoArticulo()
+        {
+            clsConexion objConexion = new clsConexion();
+
+
+            String miComando = "SELECT COD_ESTADO_ARTICULO,DESCRIPCION_CODIGO_ARTICULO FROM ESTADO_ARTICULO";
+
+
+
+            return objConexion.consultarInformacionSQL(miComando); ;
+        }
 
 
     }

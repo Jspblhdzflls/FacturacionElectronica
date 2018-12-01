@@ -179,6 +179,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Paginas\CrearFactura.aspx" />
     <Content Include="Paginas\Mantenimientos\MantenimientoEmisor.aspx" />
+    <Content Include="Paginas\Mantenimientos\MantenimientoProductos.aspx" />
     <Content Include="Paginas\Mantenimientos\MantenimientoReceptor.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -381,6 +382,13 @@
     </Compile>
     <Compile Include="Paginas\Mantenimientos\MantenimientoEmisor.aspx.designer.cs">
       <DependentUpon>MantenimientoEmisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\Mantenimientos\MantenimientoProductos.aspx.cs">
+      <DependentUpon>MantenimientoProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Mantenimientos\MantenimientoProductos.aspx.designer.cs">
+      <DependentUpon>MantenimientoProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paginas\Mantenimientos\MantenimientoReceptor.aspx.cs">
       <DependentUpon>MantenimientoReceptor.aspx</DependentUpon>

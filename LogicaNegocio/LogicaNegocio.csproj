@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsArticulo.cs" />
     <Compile Include="clsEmisor.cs" />
     <Compile Include="clsFacturaDetalle.cs" />
     <Compile Include="clsFacturaEncabezado.cs" />

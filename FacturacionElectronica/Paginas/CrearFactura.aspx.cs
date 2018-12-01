@@ -24,12 +24,96 @@ namespace FacturacionElectronica.Paginas
                 CargarCondicionVenta();
                 CamposReceptor(false);
                 CargarTipoID();
+
+                String identificacionUsuario = Session["IdentifiacionUsuario"] as String;
+
+
+
+                ConsultarEmisoresXusuario(identificacionUsuario);
             }
 
 
 
         }
 
+
+
+        public void ConsultarEmisoresXusuario(String pIdentificacionUsuario)
+        {
+            clsEmisor objEmisor = new clsEmisor();
+
+            DataTable miDt = new DataTable();
+
+            miDt = objEmisor.consultarEmisoresXUsuario(pIdentificacionUsuario);
+
+            if (miDt.Rows.Count == 0)
+            {
+
+            }
+            else if (miDt.Rows.Count == 1)
+            {
+                CargarPanel(miDt);
+                ddlEmisor.Visible = false;
+
+
+
+            }
+            else if (miDt.Rows.Count > 1)
+            {
+
+                ddlEmisor.DataSource = miDt;
+                ddlEmisor.DataValueField = "U00COD";
+                ddlEmisor.DataTextField = "NOM_EMISOR";
+                ddlEmisor.DataBind();
+                ddlEmisor.Visible = true;
+
+            }
+
+        }
+
+        protected void ddlEmisor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (ddlEmisor.SelectedIndex == 0)
+            {
+
+            }
+            else
+            {
+                consultarEmisor(int.Parse(ddlEmisor.SelectedValue));
+            }
+
+        }
+
+        public void consultarEmisor(int pU00cod)
+        {
+
+            clsEmisor objEmisor = new clsEmisor();
+            objEmisor.U00cod = pU00cod;
+            DataTable miDt = new DataTable();
+            miDt = objEmisor.consultarEmisor();
+            if (miDt.Rows.Count > 0)
+            {
+                CargarPanel(miDt);
+
+            }
+
+
+        }
+
+        public void CargarPanel(DataTable dtDatos)
+        {
+
+            if (dtDatos.Rows.Count > 0)
+            {
+                txtCodigoEmisor.Text = dtDatos.Rows[0]["U00COD"].ToString();
+                txtNombreEmisor.Text = dtDatos.Rows[0]["NOM_EMISOR"].ToString();
+                txtTelefono.Text = dtDatos.Rows[0]["NUM_TEL"].ToString();
+                txtCedulaEmisor.Text = dtDatos.Rows[0]["CED_EMISOR"].ToString();
+            }
+
+
+        }
 
         public void cargarReceptor(int codEmisor, String ced_Receptor)
         {
@@ -373,7 +457,8 @@ namespace FacturacionElectronica.Paginas
 
         }
 
-        public void guardarDetalle(int u00cod, String clave) {
+        public void guardarDetalle(int u00cod, String clave)
+        {
 
             clsFacturaDetalle objDetalle = new clsFacturaDetalle();
 
@@ -381,9 +466,9 @@ namespace FacturacionElectronica.Paginas
             objDetalle.Clave = clave;
             objDetalle.guardarLista((List<clsFacturaDetalle>)Session[clsVariablesSession.ProductosLista]);
 
-        
-        
-        
+
+
+
         }
 
         public String guardarFactura(int u00cod, int codReceptor)
@@ -413,7 +498,7 @@ namespace FacturacionElectronica.Paginas
             //??????????
             objFacturaEncabezado.Det_otr_medio_pago = "";
             //???????????
-            objFacturaEncabezado.Cod_receptor = codReceptor ;
+            objFacturaEncabezado.Cod_receptor = codReceptor;
 
             String Clave = objFacturaEncabezado.InsertarEncabezado2();
 

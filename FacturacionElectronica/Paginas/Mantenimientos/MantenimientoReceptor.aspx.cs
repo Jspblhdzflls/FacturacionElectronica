@@ -24,6 +24,7 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
 
                 lblIDEmisor.Text = "1";
 
+
             }
         }
 
