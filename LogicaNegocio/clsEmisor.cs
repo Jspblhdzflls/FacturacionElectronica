@@ -386,10 +386,15 @@ namespace LogicaNegocio
             misParametros.Clear();
 
             SqlParameter miParametro;
+            miParametro = new SqlParameter("@U00C0D", this.u00cod);
+            misParametros.Add(miParametro);
+
             miParametro = new SqlParameter("@NOM_EMISOR", this.nom_emisor);
             misParametros.Add(miParametro);
+
             miParametro = new SqlParameter("@COD_IDENTIFICACION", this.cod_identificacion);
             misParametros.Add(miParametro);
+
             miParametro = new SqlParameter("@CED_EMISOR", this.ced_Emisor);
             misParametros.Add(miParametro);
             miParametro = new SqlParameter("@NOM_COMERCIAL", this.nom_comercial);
@@ -488,7 +493,7 @@ namespace LogicaNegocio
 
         }
 
-        public DataTable consultarEmisoresXUsuario( String identificacionUsuario)
+        public DataTable consultarEmisoresXUsuario(String identificacionUsuario)
         {
 
             clsConexion objConexion = new clsConexion();

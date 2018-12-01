@@ -165,20 +165,15 @@
         </div>
         <div class="panel-footer">
 
-            <asp:Button ID="btnNuevo" CssClass="btn btn-primary btn-bloque" runat="server" Text="Agregar Usuario" />
+            <asp:Button ID="btnModificar" CssClass="btn btn-primary btn-bloque" runat="server" Text="Modificar Emisor" OnClick="btnModificar_Click" />
 
-            <asp:Button ID="btnActualizar" CssClass="btn btn-success btn-bloque" runat="server" Text="Editar Usuario" />
 
-            <asp:Button ID="btnLimpiar" CssClass="btn btn-success btn-bloque" runat="server" Text="Limpiar Campos" />
-
-            <asp:Button ID="btnConsultarTodos" CssClass="btn btn-success btn-bloque" runat="server" Text="Consultar Todos" />
-
-            <asp:Button ID="btnEliminar" CssClass="btn btn-danger btn-bloque" runat="server" Text="Eliminar Usuario" />
 
         </div>
     </div>
 
     <asp:Label ID="lblUsuarioLogueado" runat="server" Text="0" CssClass="label"></asp:Label>
+    <asp:Label ID="lblU00Cod" runat="server" Text="0" CssClass="label"></asp:Label>
 
 
 </asp:Content>

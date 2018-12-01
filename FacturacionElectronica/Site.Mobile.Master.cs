@@ -11,6 +11,7 @@ namespace FacturacionElectronica
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Redirect("/__FriendlyUrls_SwitchView?ReturnUrl=%2fDefault");
 
         }
     }

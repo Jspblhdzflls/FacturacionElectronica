@@ -71,9 +71,24 @@ namespace FacturacionElectronica
 
         }
 
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        //protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        //{
+        //    Context.GetOwinContext().Authentication.SignOut();
+        //}
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignOut();
+
+            Session["IdRol"] = "";
+            Session["Estado"] = "0";
+            Session["idUsuario"] = "";
+
+
+
+            Response.Redirect("~/Login.aspx");
+
+
+
         }
     }
 

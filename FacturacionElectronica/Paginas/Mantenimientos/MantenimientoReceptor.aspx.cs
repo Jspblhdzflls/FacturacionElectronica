@@ -27,6 +27,8 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
             }
         }
 
+
+
         public void CargarTipoID()
         {
 

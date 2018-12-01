@@ -15,11 +15,14 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
         clsUtilitario objUtilitario = new clsUtilitario();
 
         protected void Page_Load(object sender, EventArgs e)
-       {
+        {
             if (!this.IsPostBack)
             {
 
-                lblUsuarioLogueado.Text = "115520845";
+                String identificacionUsuario = Session["IdentifiacionUsuario"] as String;
+
+                lblUsuarioLogueado.Text = identificacionUsuario;
+
                 ConsultarEmisoresXusuario(lblUsuarioLogueado.Text);
                 CargarProvincia();
             }
@@ -27,20 +30,22 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
         }
         //
 
-        public void CargarProvincia() {
+        public void CargarProvincia()
+        {
 
             DataTable miDt = new DataTable();
             miDt = objUtilitario.ConsultarProvincia();
-            if (miDt.Rows.Count > 0) {
+            if (miDt.Rows.Count > 0)
+            {
 
                 ddlProvincia.DataSource = miDt;
                 ddlProvincia.DataValueField = "COD_PROVINCIA";
                 ddlProvincia.DataTextField = "PROVINCIA";
                 ddlProvincia.DataBind();
             }
-            
+
         }
-        public void CargarCanton( int idProvincia)
+        public void CargarCanton(int idProvincia)
         {
 
             DataTable miDt = new DataTable();
@@ -60,7 +65,7 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
         {
 
             DataTable miDt = new DataTable();
-            miDt = objUtilitario.ConsultarDistrito(idProvincia,cod_canton);
+            miDt = objUtilitario.ConsultarDistrito(idProvincia, cod_canton);
             if (miDt.Rows.Count > 0)
             {
 
@@ -75,7 +80,7 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
         {
 
             DataTable miDt = new DataTable();
-            miDt = objUtilitario.ConsultarBarrio(idProvincia, cod_canton,cod_Distrito);
+            miDt = objUtilitario.ConsultarBarrio(idProvincia, cod_canton, cod_Distrito);
             if (miDt.Rows.Count > 0)
             {
 
@@ -122,8 +127,9 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
             if (dtDatos.Rows.Count > 0)
             {
 
+                lblU00Cod.Text = dtDatos.Rows[0]["U00COD"].ToString();
                 int provincia = int.Parse(dtDatos.Rows[0]["COD_PROVINCIA"].ToString());
-                String canton = dtDatos.Rows[0]["COD_CANTON"].ToString(); ;
+                String canton = dtDatos.Rows[0]["COD_CANTON"].ToString();
                 String Distrito = dtDatos.Rows[0]["COD_DISTRITO"].ToString();
                 String Barrio = dtDatos.Rows[0]["COD_BARRIO"].ToString();
 
@@ -139,7 +145,7 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
                 txtNombreEmisor.Text = dtDatos.Rows[0]["NOM_EMISOR"].ToString();
                 txtCedEmisor.Text = dtDatos.Rows[0]["CED_EMISOR"].ToString();
                 txtNombreComercial.Text = dtDatos.Rows[0]["NOM_COMERCIAL"].ToString();
-               
+
                 txtOtrasSeñas.Text = dtDatos.Rows[0]["OTRAS_SENNAS"].ToString();
                 txtCodPais.Text = dtDatos.Rows[0]["COD_PAIS_TEL"].ToString();
                 txtTelefono.Text = dtDatos.Rows[0]["NUM_TEL"].ToString();
@@ -187,6 +193,46 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
                 CargarPanel(miDt);
 
             }
+
+
+        }
+
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            ActualizarEmisor(int.Parse(lblU00Cod.Text));
+
+        }
+
+
+        public void ActualizarEmisor(int u00Cod)
+        {
+            clsEmisor objEmisor = new clsEmisor();
+            objEmisor.U00cod = u00Cod;
+            objEmisor.Nom_emisor = txtNombreEmisor.Text;
+            objEmisor.Ced_Emisor = txtCedEmisor.Text;
+            objEmisor.Cod_identificacion = "";
+            objEmisor.Nom_comercial = txtNombreComercial.Text;
+            objEmisor.Cod_provincia = ddlProvincia.SelectedValue;
+            objEmisor.Cod_canton = ddlCanton.SelectedValue;
+            objEmisor.Cod_distrito = ddldistriro.SelectedValue;
+            objEmisor.Cod_barrio = ddlBArrio.SelectedValue;
+            objEmisor.Otras_sennas = txtOtrasSeñas.Text;
+            objEmisor.Cod_pais_tel = int.Parse(txtCodPais.Text);
+            objEmisor.Num_tel = txtTelefono.Text;
+            objEmisor.Cod_pais_fax = int.Parse(txtCodPais.Text);
+            objEmisor.Num_fax = txtFax.Text;
+            objEmisor.Estado = "1";
+            objEmisor.Email = txtCorreoElectronico.Text;
+            objEmisor.Usr_hacienda = txtUserHacienda.Text;
+            objEmisor.Password = txtContraseñaHacienda.Text;
+            objEmisor.Ruta_xml = txtRutaXML.Text;
+            objEmisor.Ruta_pdf = txtRutaPDF.Text;
+            objEmisor.Certificado = txtCertificado.Text;
+            objEmisor.Emailfac = txtCorreoFacturacion.Text;
+            objEmisor.Pssw_emailfac = txtContrasenaFacturacion.Text;
+            objEmisor.Ruta_Logo = txtLogo.Text;
+            objEmisor.GuardarEmisor();
 
 
         }

@@ -43,7 +43,7 @@
     <Compile Include="clsFacturaDetalle.cs" />
     <Compile Include="clsFacturaEncabezado.cs" />
     <Compile Include="clsReceptor.cs" />
-    <Compile Include="ClsUsuario.cs" />
+    <Compile Include="clsUsuario.cs" />
     <Compile Include="clsUtilitario.cs" />
     <Compile Include="clsVariablesSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
