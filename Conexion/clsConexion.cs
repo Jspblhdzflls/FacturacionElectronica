@@ -20,8 +20,9 @@ namespace Conexion
 
             // miconexion.ConnectionString = "Data Source=AIU654BDA02-PR;Initial Catalog=InternetBanking;User ID=USERIB2;Password=1234";
 
-            miconexion.ConnectionString = @"Data Source=PABLOLAP\MSSQLSERVER2017;Initial Catalog=FacturaElectronica;User ID=userFactElec;Password=1234";
+        // miconexion.ConnectionString = @"Data Source=PABLOLAP\MSSQLSERVER2017;Initial Catalog=FacturaElectronica;User ID=userFactElec;Password=1234";
 
+            miconexion.ConnectionString = "Data Source=SERVERTEST;Initial Catalog=FactuAyuda;User ID=userFactElec;Password=1234";
 
             miconexion.Open();
 

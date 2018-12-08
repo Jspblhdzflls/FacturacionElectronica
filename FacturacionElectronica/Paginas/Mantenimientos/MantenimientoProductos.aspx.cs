@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace FacturacionElectronica.Paginas.Mantenimientos
@@ -253,7 +256,30 @@ namespace FacturacionElectronica.Paginas.Mantenimientos
         protected void btnExportar_Click(object sender, EventArgs e)
         {
 
+            ExportToExcel("Articulos.xls", gvProductos);
+
 
         }
+
+        private void ExportToExcel(string nameReport, GridView wControl)
+        {
+            HttpResponse responsePage = Response;
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            Page pageToRender = new Page();
+            HtmlForm form = new HtmlForm();
+            form.Controls.Add(wControl);
+            pageToRender.Controls.Add(form);
+            responsePage.Clear();
+            responsePage.Buffer = true;
+            responsePage.ContentType = "application/vnd.ms-excel";
+            responsePage.AddHeader("Content-Disposition", "attachment;filename=" + nameReport);
+            responsePage.Charset = "UTF-8";
+            responsePage.ContentEncoding = Encoding.Default;
+            pageToRender.RenderControl(htw);
+            responsePage.Write(sw.ToString());
+            responsePage.End();
+        }
+
     }
 }

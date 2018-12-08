@@ -294,6 +294,28 @@ namespace LogicaNegocio
 
         }
 
+        public DataTable ListarArticulos()
+        {
+
+            clsConexion objConexion = new clsConexion();
+            List<SqlParameter> misParametros = new List<SqlParameter>();
+
+            misParametros.Clear();
+
+
+            SqlParameter miParametro;
+            miParametro = new SqlParameter("@U00COD", this.u00cod);
+            misParametros.Add(miParametro);
+
+            String micomando = "sp_TListarArticulos";
+
+
+            return objConexion.consultarInformacion(micomando, misParametros);
+
+
+
+        }
+
 
 
 

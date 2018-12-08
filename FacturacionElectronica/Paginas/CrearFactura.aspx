@@ -165,6 +165,19 @@
 
                     <div class="form-group col-md-4">
 
+                        <asp:Label ID="Label1" runat="server" Text="Seleccione Articulo" CssClass="label"></asp:Label>
+                        <asp:DropDownList ID="ddlArticulos" CssClass="form-control" runat="server" AppendDataBoundItems="true" OnSelectedIndexChanged="ddlArticulos_SelectedIndexChanged" AutoPostBack="true">                            <asp:ListItem Value="0">Seleccione Articulo</asp:ListItem>
+
+                        </asp:DropDownList>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <asp:Label ID="Label2" runat="server" Text="Digite Codigo del Articulo" CssClass="label"></asp:Label>
+                        <asp:TextBox ID="txtCodArticulo" CssClass="form-control" runat="server" OnTextChanged="txtCodArticulo_TextChanged" AutoPostBack="true"></asp:TextBox>
+
+                    </div>
+                    <div class="form-group col-md-4">
+
                         <asp:Label ID="Label40" runat="server" Text="Seleccione Tipo Articulo" CssClass="label"></asp:Label>
                         <asp:DropDownList ID="ddlProdServ" CssClass="form-control" runat="server" AppendDataBoundItems="true">
                             <asp:ListItem Value="0">Seleccione Producto o Servicio</asp:ListItem>
@@ -175,11 +188,7 @@
                     </div>
                     <asp:Label ID="lblIDCliente" runat="server" Text="0" CssClass="label" Visible="false"></asp:Label>
 
-                    <div class="form-group col-md-4">
-                        <asp:Label ID="Label2" runat="server" Text="Digite Codigo del Articulo" CssClass="label"></asp:Label>
-                        <asp:TextBox ID="txtCodArticulo" CssClass="form-control" runat="server"></asp:TextBox>
 
-                    </div>
 
                     <div class="form-group col-md-4">
                         <asp:Label ID="Label41" runat="server" Text="Detalle Articulo" CssClass="label"></asp:Label>

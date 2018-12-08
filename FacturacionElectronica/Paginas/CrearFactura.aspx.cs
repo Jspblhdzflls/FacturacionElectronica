@@ -52,8 +52,10 @@ namespace FacturacionElectronica.Paginas
             }
             else if (miDt.Rows.Count == 1)
             {
+                int pU00Cod = int.Parse(miDt.Rows[0]["U00COD"].ToString());
                 CargarPanel(miDt);
                 ddlEmisor.Visible = false;
+                CargarArticulos(pU00Cod);
 
 
 
@@ -71,6 +73,25 @@ namespace FacturacionElectronica.Paginas
 
         }
 
+
+        public void CargarArticulos(int pU00Cod)
+        {
+
+            clsArticulo ObjArticulo = new clsArticulo();
+            DataTable miDT = new DataTable();
+            ObjArticulo.U00cod = pU00Cod;
+            miDT = ObjArticulo.ListarArticulos();
+
+            if (miDT.Rows.Count > 0)
+            {
+                ddlArticulos.DataSource = miDT;
+                ddlArticulos.DataValueField = "ID_ARTICULO";
+                ddlArticulos.DataTextField = "DETALLE";
+                ddlArticulos.DataBind();
+
+            }
+
+        }
         protected void ddlEmisor_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -95,6 +116,7 @@ namespace FacturacionElectronica.Paginas
             if (miDt.Rows.Count > 0)
             {
                 CargarPanel(miDt);
+                CargarArticulos(pU00cod);
 
             }
 
@@ -503,6 +525,60 @@ namespace FacturacionElectronica.Paginas
             String Clave = objFacturaEncabezado.InsertarEncabezado2();
 
             return Clave;
+        }
+
+        protected void txtCodArticulo_TextChanged(object sender, EventArgs e)
+        {
+
+            CargarArticulo(int.Parse(ddlEmisor.SelectedValue), int.Parse(txtCodArticulo.Text));
+
+        }
+
+
+        public void CargarArticulo(int pU00Cod, int pIdArticulo)
+        {
+
+            DataTable miDt = new DataTable();
+
+            clsArticulo objArticulo = new clsArticulo();
+
+            objArticulo.Id_articulo = pIdArticulo;
+            objArticulo.U00cod = pU00Cod;
+            objArticulo.Detalle = "";
+            objArticulo.IdTipoBusqueda = 1;
+            miDt = objArticulo.consultarArticulo();
+
+            if (miDt.Rows.Count > 0)
+            {
+
+                txtCodArticulo.Text = miDt.Rows[0]["ID_ARTICULO"].ToString();
+                txtDetalle.Text = miDt.Rows[0]["DETALLE"].ToString();
+                ddlProdServ.SelectedValue = miDt.Rows[0]["COD_PROD_SERV"].ToString();
+                ddlUidadMEdida.SelectedValue = miDt.Rows[0]["UNIDAD_MEDIDA"].ToString();
+                txtmedidacomercial.Text = miDt.Rows[0]["UNIDAD_MEDIDA_COMERCIAL"].ToString();
+                txtPrecioUnitario.Text = miDt.Rows[0]["PRECIO_UNITARIO"].ToString();
+
+                Boolean impuesto = Boolean.Parse(miDt.Rows[0]["PAGA_IMPUESTO"].ToString());
+
+                if (impuesto)
+                {
+                    ckImpuesto.Checked = true;
+
+                }
+                else {
+                    ckImpuesto.Checked = false;
+                }
+
+
+            }
+
+
+        }
+
+        protected void ddlArticulos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarArticulo(int.Parse(ddlEmisor.SelectedValue), int.Parse(ddlArticulos.SelectedValue));
+
         }
     }
 
